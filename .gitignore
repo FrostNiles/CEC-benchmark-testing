@@ -9,3 +9,16 @@
 
 /results
 
+# Ignore test.txt file
+test.txt
+
+# Ignore test.vcxproj file
+test.vcxproj
+
+test.txt
+
+# Ignore test.vcxproj file
+test.vcxproj.filters
+
+# Ignore test.vcxproj file
+test.vcxproj.user
