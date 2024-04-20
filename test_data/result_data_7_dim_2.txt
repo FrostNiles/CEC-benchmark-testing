@@ -1,0 +1,4 @@
+Dimension: 2
+4.65875e+01
+4.658758e+01
+deviation:2.46e-05

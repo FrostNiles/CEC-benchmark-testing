@@ -1,0 +1,11 @@
+# Ignore .vscode directory
+/.vscode
+
+# Ignore x64 directory
+/x64
+
+# Ignore any .exe files
+*.exe
+
+/results
+
