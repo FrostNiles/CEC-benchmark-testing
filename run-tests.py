@@ -5,7 +5,6 @@ import sys
 # Run the first Python script
 argNum = sys.argv[1]
 dimension = sys.argv[2]
-deleteNumber = sys.argv[3]
 
 #import the original data
 
@@ -74,11 +73,13 @@ with open(f'test_data/shift_data_{argNum}_final.txt', 'w') as file:
     file.write("\n")
     file.write(data)
 
-data_number = re.findall(r'\d+\.\d+e[+-]\d+', data)[0]
-backup_number = re.findall(r'\d+\.\d+e[+-]\d+', backup)[0]
+
+number_of_element = int(sys.argv[3]) - 1
+data_number = re.findall(r'\d+\.\d+e[+-]\d+', data)[number_of_element]
+backup_number = re.findall(r'\d+\.\d+e[+-]\d+', backup)[number_of_element]
 
 #write only one of the data to the file
-with open(f'test_data/result_data_{argNum}_dim_{dimension}.txt', 'w') as file:
+with open(f'test_data/result/result_data_{argNum}_dim_{dimension}_number_of_element_{number_of_element+1}.txt', 'w') as file:
     file.write(f"Dimension: {dimension}")
     file.write("\n")
     file.write(data_number)
@@ -90,6 +91,9 @@ with open(f'test_data/shift_data_{argNum}.txt', 'w') as file:
 
 with open(f'test_data/shift_data_{argNum}_backup.txt', 'w') as file:
     file.write(backup)
+
+#stop here for now
+#sys.exit()
 
 runpy.run_path('./first-run.py')
 
@@ -418,7 +422,7 @@ else:
 with open(f'test_data/shift_data_{argNum}_deviation_final.txt', 'r') as file:
                 deviation = file.read()
 
-with open(f'test_data/result_data_{argNum}_dim_{dimension}.txt', 'a') as file:
+with open(f'test_data/result/result_data_{argNum}_dim_{dimension}_number_of_element_{number_of_element+1}.txt', 'w') as file:
     file.write("deviation:")
     file.write(deviation)
     

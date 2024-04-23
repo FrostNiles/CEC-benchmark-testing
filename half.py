@@ -11,24 +11,29 @@ with open(f'test_data/shift_data_{argNum}_upper.txt', 'r') as file:
 with open(f'test_data/shift_data_{argNum}_lower.txt', 'r') as file:
     lower = file.read()
 
+with open(f'test_data/shift_data_{argNum}.txt', 'r') as file:
+    original = file.read()
+
 #backup the data to the step backup
 
 lower_numbers = [float(i) for i in lower.split()]
 upper_numbers = [float(i) for i in upper.split()]
+original_numbers = [float(i) for i in original.split()]
 
-#print("lower_numbers", lower_numbers[0])
-#print("upper_numbers", upper_numbers[0])
 
 
 # now I want to bisecting the interval between the two numbers on the same position in each file
 # I want to get the number in the middle between the two numbers with bisecting the interval
 
-middle_numbers = [(upper_numbers[i] + lower_numbers[i]) / 2 for i in range(len(upper_numbers))]
-#print("middle_numbers", middle_numbers[0])
+number_of_element = int(sys.argv[3]) - 1
+
+middle_number = [(lower_numbers[number_of_element] + upper_numbers[number_of_element]) / 2]
+
+original_numbers[number_of_element] = middle_number[0]
 
 # now I want to write the middle numbers to the original file just the number and with a space behind the number
 with open(f'test_data/shift_data_{argNum}.txt', 'w') as file:
-    for number in middle_numbers:
+    for number in original_numbers:
         file.write(f"{number} ")
 
 

@@ -22,3 +22,9 @@ test.vcxproj.filters
 
 # Ignore test.vcxproj file
 test.vcxproj.user
+
+# Ignore /test_data
+/test_data/*
+
+# but include /test_data/result
+!/test_data/result/

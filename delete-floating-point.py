@@ -3,6 +3,9 @@ import sys
 
 argNum = sys.argv[1]
 numberOfDelete = sys.argv[3]
+
+numberOfDelete = int(numberOfDelete) - 1
+
 # Open the file and read its contents
 with open(f'test_data/shift_data_{argNum}.txt', 'r') as file:
     data = file.read()
@@ -17,8 +20,22 @@ with open(f'test_data/shift_data_{argNum}_backup.txt', 'w') as file:
 # but I want to delete only from one number and its position I will tell in the argument
 # so I will delete the number before "e" from the number which is in the position 1
 
-#modified_data = re.sub(r'(\d)(e)', r'\2', data)
-modified_data = re.sub(r'(\d)(e)', r'\2', data, int(numberOfDelete)-1)
+
+# Extract the second number from the modified data
+numbers = re.findall(r'(-?\d+\.\d+e[+-]\d+)', data)
+if len(numbers) >= numberOfDelete:
+    numeroToDelete = numbers[numberOfDelete]
+else:
+    print("The number of the position to delete is greater than the number of numbers in the file")
+    sys.exit()
+
+print(numeroToDelete)
+#delete the number before "e" from the number in variable numeroToDelete
+modified_number = re.sub(r'(\d)(e)', r'\2', numeroToDelete)
+print(modified_number)
+
+# Replace the first number with the modified number
+modified_data = data.replace(numeroToDelete, modified_number)
 
 
 # Write the modified contents to the original file
