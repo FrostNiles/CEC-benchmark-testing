@@ -29,10 +29,8 @@ else:
     print("The number of the position to delete is greater than the number of numbers in the file")
     sys.exit()
 
-print(numeroToDelete)
 #delete the number before "e" from the number in variable numeroToDelete
 modified_number = re.sub(r'(\d)(e)', r'\2', numeroToDelete)
-print(modified_number)
 
 # Replace the first number with the modified number
 modified_data = data.replace(numeroToDelete, modified_number)

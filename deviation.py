@@ -20,7 +20,6 @@ n = int(sys.argv[2])
 numberOfElement = int(sys.argv[3]) - 1
 # Calculate the deviation
 deviation = abs(original_numbers[numberOfElement] - new_numbers[numberOfElement])
-print(deviation)
 #count deviation in the exact position
 
 with open(f'test_data/shift_data_{argNum}_deviation_final.txt', 'w') as file:

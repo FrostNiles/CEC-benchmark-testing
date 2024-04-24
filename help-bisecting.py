@@ -47,20 +47,15 @@ after = result[1]
 # Now I want to get the first 8 digits from after
 eightDigits = after[:8]
 lastTwoDigits = after[-2:]
-print("eightdigits in bisecting",eightDigits)
-print("lastTwoDigits in bisecting",lastTwoDigits)
 
 
 
 if int(eightDigits) > 0:
-    print("The result is bigger than 99")
     with open(f'test_data/shift_data_{argNum}_upper.txt', 'w') as file:
         file.write(current)
 else:
     if int(lastTwoDigits) < 96:
-        print("The result is lower than 96")
         with open(f'test_data/shift_data_{argNum}_lower.txt', 'w') as file:
             file.write(current)
     else:
-        print("The result is between 96 and 99")
         exit(0)
