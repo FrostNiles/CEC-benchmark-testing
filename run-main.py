@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import os
 
 func_num = sys.argv[1]
 dimension = sys.argv[2]
@@ -7,9 +8,6 @@ dimension = sys.argv[2]
 if dimension not in ['2', '10', '30', '50', '100']:
     print("Invalid dimension. Please choose from 2, 10, 30, 50, or 100.")
     sys.exit(1)
-
-# Compile the C++ file
-subprocess.run(["g++", "main.cpp", "cec_test_func.cpp", "-o", "main"], check=True)
 
 # Set the dimension as a command line argument for the C++ program
 args = ["./main", func_num, dimension]
