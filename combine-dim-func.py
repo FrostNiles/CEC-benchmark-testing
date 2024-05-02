@@ -97,7 +97,7 @@ if not os.path.exists('./main'):
     subprocess.run(["g++", "main.cpp", "cec_test_func.cpp", "-o", "main"], check=True)
 
 def run_test(i):
-    for j in [50, 100]:
+    for j in [10, 30, 50, 100]:
         for k in range(1, j+1):
             # Set the dimension as a command line argument for the C++ program
             args = [str(i), str(j), str(k)]
@@ -106,7 +106,7 @@ def run_test(i):
 if __name__ == '__main__':
     # Create a pool of workers
     with multiprocessing.Pool() as pool:
-        for i in range(13, 31):
+        for i in range(1, 31):
             if i in skipped:
                 continue
             # Run the test in a separate process
