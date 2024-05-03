@@ -1,3 +1,1 @@
-Dimension: 100
-6.65775462e+01
-6.657754621e+01
+deviation:inf
