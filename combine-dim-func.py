@@ -2,13 +2,15 @@ import subprocess
 import multiprocessing
 import os
 import time
+import concurrent.futures
 
-skipped = {2, 9, 14, 15, 16, 18, 20, 29, 30, 27}
+skipped = {2, 9, 27}
 
 #14,15,16,18, 20 - Hybrid functions - very sensitive to deleting floating point number 
 #2 - deleted function
 #29, 30 composite functions - put together at least one of the very sensitive hybrid functions
 #9, 27 
+# 29, 30, include at least one of the very sensitive hybrid functions
 
 
 #27 
@@ -104,14 +106,18 @@ def run_test(i):
             subprocess.run(['python', './run-tests.py'] + args)
 
 if __name__ == '__main__':
-    # Create a pool of workers
-    with multiprocessing.Pool() as pool:
-        for i in range(1, 31):
+    # Create a ThreadPoolExecutor
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        futures = []
+        for i in range(14, 31):
             if i in skipped:
                 continue
-            # Run the test in a separate process
-            pool.apply_async(run_test, (i,))
+            # Run the test in a separate thread
+            futures.append(executor.submit(run_test, i))
 
-        # Wait for all the tests to finish
-        pool.close()
-        pool.join()
+        # Wait for all the tests to finish or timeout after 60 seconds
+        for future in concurrent.futures.as_completed(futures, timeout=180):
+            try:
+                future.result()
+            except concurrent.futures.TimeoutError:
+                print("A test took too long and was cancelled.")

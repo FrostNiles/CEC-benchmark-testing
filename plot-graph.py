@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
+import numpy as np
 
 
 function_numbers = [i for i in range(1, 31) if i not in [2, 9, 14, 15, 16, 18, 20, 27, 29, 30, 31]]
@@ -20,21 +21,25 @@ for i in range(1, 31):
             deviations.append(deviation)  # add the deviation to the list
         else:
             print(f"File result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt does not contain a ':'")
-print(deviations)
+""" print(deviations)
+print(function_numbers) """
+# print the numbers without space between them
 # I need to extract the deviation value from the string
 # Change the format of the y-axis labels
 
 
-plt.figure(figsize=(10, 6))
-plt.bar(function_numbers, deviations, color='blue')
+plt.figure(figsize=(12, 12))
+function_numbers = [i-1 if i != 1 else i for i in function_numbers]
 
-formatter = ticker.FuncFormatter(lambda x, pos: '{:.20f}'.format(x))
+plt.bar(np.arange(len(function_numbers)), deviations, color='blue')
+
+formatter = ticker.FuncFormatter(lambda x, pos: '{:.15f}'.format(x))
 plt.gca().yaxis.set_major_formatter(formatter)
 
 plt.title('Odchylky funkcí')
 plt.xlabel('Číslo funkce')
 plt.ylabel('Odchylka')
-plt.yscale('log') 
-plt.xticks(range(1, 31))
+#plt.yscale('log') 
+plt.xticks(np.arange(len(function_numbers)), function_numbers)
 
 plt.show()

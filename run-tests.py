@@ -125,6 +125,7 @@ eightDigits = after[:8]
 lastTwoDigits = after[-2:]
 
 
+counter = 0
 
 while int(eightDigits) > 0 or int(lastTwoDigits) < 96:
     
@@ -148,6 +149,9 @@ while int(eightDigits) > 0 or int(lastTwoDigits) < 96:
 
     eightDigits = after[:8]
     lastTwoDigits = after[-2:]
+    counter += 1
+    if counter == 50:
+        sys.exit()
 
 
 #open the shift_data_1.txt and read the data
