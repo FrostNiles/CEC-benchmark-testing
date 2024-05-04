@@ -76,8 +76,10 @@ with open(f'test_data/shift_data_{argNum}_final.txt', 'w') as file:
 
 
 number_of_element = int(arg3) - 1
-data_number = re.findall(r'\d+\.\d+e[+-]\d+', data)[number_of_element]
-backup_number = re.findall(r'\d+\.\d+e[+-]\d+', backup)[number_of_element]
+data_number = re.findall(r'\d*\.?\d*e[+-]\d+', data)[number_of_element]
+backup_number = re.findall(r'\d*\.?\d*e[+-]\d+', backup)[number_of_element]
+
+
 
 #write only one of the data to the file
 with open(f'test_data/result/result_data_{argNum}_dim_{dimension}_number_of_element_{number_of_element+1}.txt', 'w') as file:
@@ -96,14 +98,13 @@ with open(f'test_data/shift_data_{argNum}_backup.txt', 'w') as file:
 #stop here for now
 #sys.exit()
 
+
+
 runpy.run_path('./first-run.py')
 
 runpy.run_path('./convert-e-to-float.py')
 
 runpy.run_path('./run-main.py')
-
-
-
 
 
 #open the result file

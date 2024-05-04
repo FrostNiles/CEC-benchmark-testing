@@ -20,8 +20,8 @@ with open(f'test_data/shift_data_{argNum}_upper.txt', 'w') as file:
 
 # Split the data into individual numbers - the one number is written like this (for example) in the file -5.527639849e+01
 
-data_numbers = re.findall(r'[-+]?\d*\.\d+e[-+]?\d+|\d+', data)
-backup_numbers = re.findall(r'[-+]?\d*\.\d+e[-+]?\d+|\d+', backup_latest_data)
+data_numbers = re.findall(r'[-+]?\d*\.?\d*e[-+]?\d+|\d+', data)
+backup_numbers = re.findall(r'[-+]?\d*\.?\d*e[-+]?\d+|\d+', backup_latest_data)
 
 data_numbers = [float(num) for num in data_numbers]
 backup_numbers = [float(num) for num in backup_numbers]

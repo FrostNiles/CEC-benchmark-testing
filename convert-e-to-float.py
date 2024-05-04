@@ -20,8 +20,8 @@ with open(f'test_data/shift_data_{argNum}_lower.txt', 'r') as file:
 
 # split all the data numbers from upper with "e" 
 
-upper_numbers = re.findall(r'[-+]?\d*\.\d+e[-+]?\d+|\d+', upper)
-lower_numbers = re.findall(r'[-+]?\d*\.\d+e[-+]?\d+|\d+', lower)
+upper_numbers = re.findall(r'[-+]?\d*\.?\d*e[-+]?\d+|\d+', upper)
+lower_numbers = re.findall(r'[-+]?\d*\.?\d*e[-+]?\d+|\d+', lower)
 
 convert_upper_numbers = [float(num) for num in upper_numbers]
 convert_lower_numbers = [float(num) for num in lower_numbers]
