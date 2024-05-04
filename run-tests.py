@@ -151,7 +151,7 @@ while int(eightDigits) > 0 or int(lastTwoDigits) < 96:
     lastTwoDigits = after[-2:]
     counter += 1
     if counter == 50:
-        sys.exit()
+        runpy.run_path('./anomaly-deviation.py')
 
 
 #open the shift_data_1.txt and read the data
