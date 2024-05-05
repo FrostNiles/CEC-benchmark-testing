@@ -64,7 +64,7 @@ plt.xlabel('Číslo funkce', fontsize=14)
 plt.ylabel('Odchylka', fontsize=14)
 plt.yscale('log') 
 
-plt.legend()
+plt.legend(fontsize='x-large')
 
 plt.savefig(f'../2017-D{dimension}.png', dpi=600)
 
