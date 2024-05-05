@@ -1,6 +1,7 @@
 import sys
 
 dimension = sys.argv[1]
+dimension = int(dimension)
 
 
 def load_deviations(filename, deviations):
