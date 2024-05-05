@@ -59,9 +59,9 @@ plt.bar([p + bar_width for p in bar_l], matlab_deviations, width=bar_width, colo
 # Set the x-axis tick labels to the tick_pos list and the x-axis labels to the function_numbers list
 plt.xticks(tick_pos, function_numbers)
 
-plt.title(f'Odchylky funkcí CEC 2017, D={dimension}')
-plt.xlabel('Číslo funkce')
-plt.ylabel('Odchylka')
+plt.title(f'Odchylky funkcí CEC 2017, D={dimension}', fontsize=18)
+plt.xlabel('Číslo funkce', fontsize=14)
+plt.ylabel('Odchylka', fontsize=14)
 plt.yscale('log') 
 
 plt.legend()

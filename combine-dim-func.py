@@ -21,7 +21,7 @@ skipped = {2, 9, 27}
 #g4: High Conditioned Elliptic Function F11’
 #g5: Expanded Scaffer’s F6 Function F6’
 
-#20 
+#20 hf10
 #g1 : Happycat Function f17
 #g2 : Katsuura Function f16 
 #g3: Ackley’s Function f13
@@ -31,26 +31,26 @@ skipped = {2, 9, 27}
 
 #9 levy function
 
-#18 
+#18 hf08
 #g1 : High Conditioned Elliptic Function f1
 #g2 : Ackley’s Function f13
 #g3: Rastrigin’s Function f5
 #g4: HGBat Function f18
 #g4: Discus Function f12
 
-#16
+#16 hf06
 #g1 : Expanded Schaffer F6 Function f6
 #g2 : HGBat Function f18
 #g3: Rosenbrock’s Function f4
 #g4: Modified Schwefel’s Function f10
 
-#15
+#15 hf05
 #g1 : Bent Cigar Function f1
 #g2 : HGBat Function f18
 #g3: Rastrigin’s Function f5
 #g4: Rosenbrock’s Function f4
 
-#14
+#14 hf04
 #g1 : High Conditioned Elliptic Function f11
 #g2 : Ackley’s Function f13
 #g3: Schaffer’s F7 Function f20
