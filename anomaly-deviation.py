@@ -279,3 +279,8 @@ while int(eightDigits) != 0 or int(lastTwoDigits) < 96:
             file.write("deviation:")
             file.write(deviation)
         sys.exit()
+
+deviation = str(middle)
+with open(f'test_data/result/result_data_{argNum}_dim_{dimension}_number_of_element_{number_of_element+1}.txt', 'w') as file:
+            file.write("deviation:")
+            file.write(deviation)
