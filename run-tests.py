@@ -39,7 +39,7 @@ after = result[1]
 # Now I want to get the first 8 digits from after
 eightDigits = after[:8]
 lastTwoDigits = after[-2:]
-
+counter_first = 0
 while int(eightDigits) == 0:
     runpy.run_path('./delete-floating-point.py')
     runpy.run_path('./run-main.py')
@@ -60,7 +60,9 @@ while int(eightDigits) == 0:
 
     eightDigits = after[:8]
     lastTwoDigits = after[-2:]
-    
+    counter_first += 1
+    if counter_first == 100:
+        sys.exit()
 
 with open(f'test_data/shift_data_{argNum}.txt', 'r') as file:
     data = file.read()

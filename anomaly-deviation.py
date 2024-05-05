@@ -60,6 +60,7 @@ eightDigits = after[:8]
 #I want to get the last two digits from the after
 # and im getting  "']" so I need to get the last two digits from the after
 lastTwoDigits = after.split('\'')[0][-2:]
+lastDeviation = str(deviation)
 
 if int(eightDigits) > 0:
 
@@ -109,6 +110,7 @@ if int(eightDigits) > 0:
         # Now I want to get the first 8 digits from after
         eightDigits = after[:8]
         lastTwoDigits = after.split('\'')[0][-2:]
+        lastDeviation = str(deviation)
         
 else:
     if int(lastTwoDigits) < 96:

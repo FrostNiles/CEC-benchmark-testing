@@ -514,7 +514,19 @@ void rosenbrock_func (double *x, double *f, int nx, double *Os,double *Mr,int s_
     int i;
 	double tmp1,tmp2;
 	f[0] = 0.0;
-	sr_func (x, z, nx, Os, Mr, 2.048/100.0, s_flag, r_flag); /* shift and rotate */
+/* 		for (int i = 0; i < nx; i++) {
+		printf("x[%d] = %f\n", i, x[i]);
+	}
+	for (int i = 0; i < nx; i++) {
+		printf("z[%d] = %f\n", i, z[i]);
+	} */
+	sr_func (x, z, nx, Os, Mr, 2.048/100.0, s_flag, r_flag); // shift and rotate
+/* 		for (int i = 0; i < nx; i++) {
+		printf("x[%d] = %f\n", i, x[i]);
+	}
+	for (int i = 0; i < nx; i++) {
+		printf("z[%d] = %f\n", i, z[i]);
+	} */
 	z[0] += 1.0;//shift to orgin
 	for (i=0; i<nx-1; i++)
 	{

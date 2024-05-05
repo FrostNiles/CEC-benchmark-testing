@@ -1,6 +1,6 @@
 import sys
 
-skipped = {2, 14, 15,  9, 27}
+skipped = {2, 20, 29, 9, 27}
 
 for i in range(1, 31):
     if i in skipped:
@@ -9,7 +9,7 @@ for i in range(1, 31):
     for j in [10, 30, 50, 100]:
         for k in range(1, j+1):   
             """ if i == 14 and j == 100 and k == 51:
-                continue     """
+                continue    """ 
             with open(f'test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt', 'r') as file:
                 result = file.read()
             # if not "deviation:" in result:
