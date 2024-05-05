@@ -1,0 +1,2 @@
+Deviation: 3.2221e-09
+Position: 95

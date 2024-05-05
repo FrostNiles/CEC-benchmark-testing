@@ -1,0 +1,2 @@
+Deviation: 1.89653e-05
+Position: 27

@@ -1,0 +1,2 @@
+Deviation: 6.9044e-05
+Position: 27

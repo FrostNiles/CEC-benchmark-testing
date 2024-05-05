@@ -1,0 +1,2 @@
+Deviation: 6.06166e-06
+Position: 3
