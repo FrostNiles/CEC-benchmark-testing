@@ -1,9 +1,10 @@
-file_path = "input_data/shift_data_22.txt"
-count = 0
+import sys
+argNum = sys.argv[1]
+file_path = f"test_data/shift_data_{argNum}.txt"
+# these are the first two numbers "   9.5857011347942525e+00   7.3284069743605357e+01  " also with those spaces in file
+with open(file_path, 'r') as file:
+    contents = file.read()
 
-with open(file_path, "r") as file:
-    for line in file:
-        numbers = line.split()
-        count += len(numbers)
-
-print("Number of numbers:", count)
+# find how many e+ or e- in the file
+count = contents.count("e+") + contents.count("e-")
+print(count)

@@ -61,7 +61,7 @@ while int(eightDigits) == 0:
     eightDigits = after[:8]
     lastTwoDigits = after[-2:]
     counter_first += 1
-    if counter_first == 100:
+    if counter_first == 40:
         sys.exit()
 
 with open(f'test_data/shift_data_{argNum}.txt', 'r') as file:
