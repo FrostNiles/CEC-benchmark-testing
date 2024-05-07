@@ -14,7 +14,7 @@ def load_deviations(filename, deviations):
 
 def get_highest_deviation(deviations):
     highest_deviation = max(deviations)
-    with open(f'test_data/result/highest_dev_{i}_dim_{j}.txt', 'w') as file:
+    with open(f'test_data/result/graph/C/highest_dev_{i}_dim_{j}.txt', 'w') as file:
         file.write(f"Deviation: {highest_deviation}")
         file.write("\n")
         file.write(f"Position: {deviations.index(highest_deviation)+1}")
@@ -22,7 +22,7 @@ def get_highest_deviation(deviations):
 
 def get_lowest_deviation(deviations):
     lowest_deviation = min(deviations)
-    with open(f'test_data/result/lowest_dev_{i}_dim_{j}.txt', 'w') as file:
+    with open(f'test_data/result/graph/C/lowest_dev_{i}_dim_{j}.txt', 'w') as file:
         file.write(f"Deviation: {lowest_deviation}")
         file.write("\n")
         file.write(f"Position: {deviations.index(lowest_deviation)+1}")
