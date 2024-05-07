@@ -1,2 +1,2 @@
-Deviation: 4.98878e-08
-Position: 6
+Deviation: 1.60152e-06
+Position: 5
