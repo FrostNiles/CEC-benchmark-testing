@@ -1,1 +1,1 @@
-deviation:6.91786e-05
+deviation:2.20936e-04
