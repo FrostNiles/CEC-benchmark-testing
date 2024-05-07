@@ -55,16 +55,16 @@ before = result[0]
 after = result[1]
 
 # Now I want to get the first 8 digits from after
-eightDigits = after[:8]
+sevenDigits = after[:7]
 #this is how the ["['3000", "0000000053']"] looks like
 #I want to get the last two digits from the after
 # and im getting  "']" so I need to get the last two digits from the after
 lastTwoDigits = after.split('\'')[0][-2:]
 lastDeviation = str(deviation)
 
-if int(eightDigits) > 0:
+if int(sevenDigits) > 0:
 
-    while int(eightDigits) != 0:
+    while int(sevenDigits) != 0:
         # I have this number 4.881784197001252e-16 in deviation and it is float and I want to subtract 1 from it (I mean like 3.881784197001252e-16)
         # I want to convert it to string and then I want to subtract 1 from it
         backup_deviation = deviation
@@ -108,13 +108,13 @@ if int(eightDigits) > 0:
         after = result[1]
 
         # Now I want to get the first 8 digits from after
-        eightDigits = after[:8]
+        sevenDigits = after[:7]
         lastTwoDigits = after.split('\'')[0][-2:]
         lastDeviation = str(deviation)
         
 else:
     if int(lastTwoDigits) < 96:
-        while int(eightDigits) == 0 and int(lastTwoDigits) < 96:
+        while int(sevenDigits) == 0 and int(lastTwoDigits) < 96:
             backup_deviation = deviation
             deviation = str(deviation)
             deviation = deviation.split('.')
@@ -158,7 +158,7 @@ else:
             after = result[1]
 
             # Now I want to get the first 8 digits from after
-            eightDigits = after[:8]
+            sevenDigits = after[:7]
             lastTwoDigits = after.split('\'')[0][-2:]
             
          
@@ -205,20 +205,20 @@ before = result[0]
 after = result[1]
 
 # Now I want to get the first 8 digits from after
-eightDigits = after[:8]
+sevenDigits = after[:7]
 
 lastTwoDigits = after.split('\'')[0][-2:]
 
 counter = 0
 
-while int(eightDigits) != 0 or int(lastTwoDigits) < 96:
-    if int(eightDigits) != 0:
+while int(sevenDigits) != 0 or int(lastTwoDigits) < 96:
+    if int(sevenDigits) != 0:
         backup_deviation = middle
     else:
         if int(lastTwoDigits) < 96:
             deviation = middle
         else:
-            print("eightDigits is equal to 0 and lastTwoDigits is greater than 96")
+            print("sevenDigits is equal to 0 and lastTwoDigits is greater than 96")
     middle = (backup_deviation + deviation) / 2
     original_numbers = [float(i) for i in original_data.split()]
 
@@ -252,9 +252,9 @@ while int(eightDigits) != 0 or int(lastTwoDigits) < 96:
     counter += 1
 
     # Now I want to get the first 8 digits from after
-    eightDigits = after[:8]
+    sevenDigits = after[:7]
     lastTwoDigits = after.split('\'')[0][-2:]
-    print("eightDigits", eightDigits)
+    print("sevenDigits", sevenDigits)
     print("lastTwoDigits", lastTwoDigits)
     print("counter", counter)
     
@@ -265,9 +265,9 @@ while int(eightDigits) != 0 or int(lastTwoDigits) < 96:
             file.write("deviation:")
             file.write(deviation)
         sys.exit()
-    if int(eightDigits) == 0:
+    if int(sevenDigits) == 0:
         lastDeviation = str(middle)
-    if int(eightDigits) == 0 and counter >= 50:
+    if int(sevenDigits) == 0 and counter >= 50:
         deviation = str(middle)
         with open(f'test_data/result/result_data_{argNum}_dim_{dimension}_number_of_element_{number_of_element+1}.txt', 'w') as file:
             file.write("deviation:")

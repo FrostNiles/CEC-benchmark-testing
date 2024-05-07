@@ -3,7 +3,7 @@ import matplotlib.ticker as ticker
 import numpy as np
 import sys
 
-function_numbers = [i for i in range(1, 31) if i not in [2, 9, 27]]
+function_numbers = [i for i in range(1, 31) if i not in [2, 9]]
 
 dimension = sys.argv[1]
 dimension = int(dimension)
@@ -12,7 +12,7 @@ deviations = []  # create an empty list to store deviations
 
 # load deviations from files
 for i in range(1, 31):
-    if i in [2, 9, 27]:
+    if i in [2, 9]:
         continue
     with open(f'test_data/result/graph/C/lowest_dev_{i}_dim_{dimension}.txt', 'r') as file:
         contents = file.read()
@@ -26,7 +26,7 @@ for i in range(1, 31):
 
 # load deviations from files
 for i in range(1, 31):
-    if i in [2, 9, 27]:
+    if i in [2, 9]:
         continue
     with open(f'test_data/result/graph/Matlab/lowest_dev_{i}_dim_{dimension}.txt', 'r') as file:
         contents = file.read()

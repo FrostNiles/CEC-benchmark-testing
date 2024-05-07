@@ -4,7 +4,7 @@ import os
 import time
 import concurrent.futures
 
-skipped = {2, 9, 27}
+skipped = {2, 9}
 
 #14,15,16,18, 20 - Hybrid functions - very sensitive to deleting floating point number 
 #2 - deleted function

@@ -1,6 +1,6 @@
 import sys
 
-skipped = {2, 9, 27}
+skipped = {2, 9}
 
 for i in range(1, 31):
     if i in skipped:

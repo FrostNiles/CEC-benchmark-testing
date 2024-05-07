@@ -3,7 +3,7 @@ import matplotlib.ticker as ticker
 import numpy as np
 
 
-function_numbers = [i for i in range(1, 31) if i not in [2, 9, 14, 15, 16, 18, 20, 27, 29, 30, 31]]
+function_numbers = [i for i in range(1, 31) if i not in [2, 9]]
 
 dimension = 10
 number_of_element = 1
@@ -11,7 +11,7 @@ deviations = []  # create an empty list to store deviations
 
 # load deviations from files
 for i in range(1, 31):
-    if i in [2, 9, 14, 15, 16, 18, 20, 27, 29, 30, 31]:
+    if i in [2, 9]:
         continue
     with open(f'test_data/result/result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt', 'r') as file:
         contents = file.read()

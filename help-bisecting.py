@@ -45,12 +45,12 @@ before = result[0]
 after = result[1]
 
 # Now I want to get the first 8 digits from after
-eightDigits = after[:8]
+sevenDigits = after[:7]
 lastTwoDigits = after[-2:]
 
 
 
-if int(eightDigits) > 0:
+if int(sevenDigits) > 0:
     with open(f'test_data/shift_data_{argNum}_upper.txt', 'w') as file:
         file.write(current)
 else:
