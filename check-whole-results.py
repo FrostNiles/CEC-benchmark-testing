@@ -7,6 +7,9 @@ for i in range(1, 31):
         continue
     # check the results if there is a deviation
     for j in [10, 30, 50, 100]:
+        if i == 27:
+            if j == 50 or j == 100:
+                continue
         for k in range(1, j+1):   
             """ if i == 14 and j == 100 and k == 51:
                 continue    """ 

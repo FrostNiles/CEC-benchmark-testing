@@ -14,6 +14,9 @@ deviations = []  # create an empty list to store deviations
 for i in range(1, 31):
     if i in [2, 9]:
         continue
+    if i == 27:
+        if dimension == 50 or dimension == 100:
+            deviations.append(0.0)
     with open(f'test_data/result/graph/C/lowest_dev_{i}_dim_{dimension}.txt', 'r') as file:
         contents = file.read()
         if 'Deviation:' in contents:

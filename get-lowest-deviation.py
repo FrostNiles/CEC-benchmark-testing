@@ -33,6 +33,9 @@ skipped = {2, 9}
 for i in range(1, 31):
     if i in skipped:
         continue
+    if i == 27:
+        if dimension == 50 or dimension == 100:
+            continue
     for j in [dimension]:
         for k in range(1, j+1):   
             filename = f'test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt'

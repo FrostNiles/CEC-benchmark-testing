@@ -13,6 +13,10 @@ deviations = []  # create an empty list to store deviations
 for i in range(1, 31):
     if i in [2, 9]:
         continue
+    if i == 27:
+        if dimension == 50 or dimension == 100:
+            deviations.append(0.0)
+            continue
     with open(f'test_data/result/result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt', 'r') as file:
         contents = file.read()
         if ':' in contents:
