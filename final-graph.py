@@ -70,6 +70,6 @@ plt.yscale('log')
 
 plt.legend(fontsize='x-large')
 
-plt.savefig(f'../2017-D{dimension}.png', dpi=600)
+plt.savefig(f'../2017-D{dimension}.png', dpi=600, bbox_inches='tight')
 
 #plt.show()
