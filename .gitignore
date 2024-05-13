@@ -30,3 +30,6 @@ test.vcxproj.user
 !/test_data/result/
 
 !/test_data/old-results/
+
+!/test_data/graph-results/
+!/test_data/table-results/
