@@ -109,14 +109,14 @@ if __name__ == '__main__':
     # Create a ThreadPoolExecutor
     with concurrent.futures.ThreadPoolExecutor() as executor:
         futures = []
-        for i in range(1, 30): # skip the composite functions 21 - 31
+        for i in range(1, 31):
             if i in skipped:
                 continue
             # Run the test in a separate thread
             futures.append(executor.submit(run_test, i))
 
         # Wait for all the tests to finish
-        for future in concurrent.futures.as_completed(futures):
+        for future in concurrent.futures.as_completed(futures, timeout=180):
             try:
                 future.result()
             except concurrent.futures.TimeoutError:
