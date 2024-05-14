@@ -8,12 +8,11 @@ import pandas as pd
 
 function_numbers = [i for i in range(1, 31) if i not in [2, 9]]
 
-dimension = sys.argv[1]
+dimension = dimension
 dimension = int(dimension)
-number_of_element = sys.argv[2]
+number_of_element = number_of_element
+number_of_element = int(number_of_element)
 
-dimension = 10
-number_of_element = 1
 deviations = []  # create an empty list to store deviations
 matlab_deviations = []  # create an empty list to store deviations
 data = []
@@ -23,29 +22,26 @@ matlab_data = []
 for i in range(1, 31):
     if i in [2, 9]:
         continue
-    for j in [dimension]:
-        if i == 27:
-            if j == 50 or j == 100:
-                deviations.append(0.0)
-                continue
-        for k in range(1, number_of_element+1):   
-            filename = f'test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt'
-            matlab = f'../test2017-mat/test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt'
-            
-            with open(filename, 'r') as file:
-                contents = file.read()
-                if ':' in contents:
-                    deviation = contents.split(':')[1].strip()
-                    deviation = float(deviation)
-                    if deviation == inf:
-                        deviation = 1.0
-                    deviations.append(deviation)
-                    if deviation == 1.0:
-                        deviation = inf
-                    i if i == 1 else i-1
-                    data.append([i, deviation])
-                else:
-                    print(f"File result_data_{i}_dim_{j}_number_of_element_{k}.txt does not contain a ':'")
+    if i == 27:
+        if dimension == 50 or dimension == 100:
+            deviations.append(0.0)
+            continue
+    filename = f'test_data/result/result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt'
+    
+    with open(filename, 'r') as file:
+        contents = file.read()
+        if ':' in contents:
+            deviation = contents.split(':')[1].strip()
+            deviation = float(deviation)
+            if deviation == inf:
+                deviation = 10e12
+            deviations.append(deviation)
+            if deviation == 100.0:
+                deviation = 10e12
+            i if i == 1 else i-1
+            data.append([i, deviation])
+        else:
+            print(f"File result_data_{i}_dim_{j}_number_of_element_{k}.txt does not contain a ':'")
 
 
 
@@ -54,24 +50,23 @@ for i in range(1, 31):
 for i in range(1, 31):
     if i in [2, 9]:
         continue
-    for j in [dimension]:
-        for k in range(1, number_of_element+1):   
-            filename = f'../test2017-mat/test_data/result/result_data_{i}_dim_{j}_number_of_element_{k}.txt'
-            with open(filename, 'r') as file:
-                contents = file.read()
-                if ':' in contents:
-                    deviation = contents.split(':')[1].strip()
-                    deviation = float(deviation)
-                    if deviation == inf:
-                        deviation = 1.0
-                    matlab_deviations.append(deviation)
-                    if deviation == 1.0:
-                        deviation = inf
-                    i if i == 1 else i-1
-                    matlab_data.append([i, deviation])
-                else:
-                    print(f"File result_data_{i}_dim_{j}_number_of_element_{k}.txt does not contain a ':'")
+    filename = f'../test2017-mat/test_data/result/result_data_{i}_dim_{dimension}_number_of_element_{number_of_element}.txt'
+    with open(filename, 'r') as file:
+        contents = file.read()
+        if ':' in contents:
+            deviation = contents.split(':')[1].strip()
+            deviation = float(deviation)
+            if deviation == inf:
+                deviation = 10e12
+            matlab_deviations.append(deviation)
+            if deviation == 10e12:
+                deviation = inf
+            i if i == 1 else i-1
+            matlab_data.append([i, deviation])
+        else:
+            print(f"File result_data_{i}_dim_{j}_number_of_element_{k}.txt does not contain a ':'")
 
+plt.figure(figsize=(15, 10))
 # Define the width of a bar
 bar_width = 0.4
 
@@ -99,12 +94,12 @@ plt.legend(fontsize='x-large')
 
 plt.savefig(f'./test_data/graph-results/2017-D{dimension}-E{number_of_element}.png', dpi=600, bbox_inches='tight')
 #plt.show()
-
+plt.close()
 # take the deviations and create table 
 
 # Create a new figure with a specific size (fullscreen)
+""" 
 fig, ax = plt.subplots(figsize=(14, 10))
-
 # Hide axes
 ax.axis('off')
 
@@ -186,4 +181,4 @@ df = pd.DataFrame(matlab_data, columns=['Číslo funkce (F*)', 'deviation'])
 df.set_index('Číslo funkce (F*)', inplace=True)
 
 # Export the DataFrame to a CSV file
-df.to_csv(f'./test_data/table-results/matlab/table-2017-{dimension}-{number_of_element}.csv')
+df.to_csv(f'./test_data/table-results/matlab/table-2017-{dimension}-{number_of_element}.csv') """
