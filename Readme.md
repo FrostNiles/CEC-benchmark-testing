@@ -19,3 +19,7 @@ For manual testing check run-tests.py. It is possilbe to run this script with ar
 To differ languages use lang-comparison.py, final-graph.py and before that get-lowest-deviation.py. The modification of these scripts are required the paths would be different.
 
 To get all the tables and graphs for all the elements of functions in all dimensions in different languages use plot-graph.py. Here it would be required to change the paths.
+
+### Results
+
+Results are find in test_data/result
