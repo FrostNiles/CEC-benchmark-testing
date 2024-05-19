@@ -23,3 +23,13 @@ To get all the tables and graphs for all the elements of functions in all dimens
 ### Results
 
 Results are find in test_data/result
+
+### portability
+
+It is possilbe to run all the tests in different years, just check the years documentation, change mains so it writes results in appropriate files.
+
+Change the precission - it is now to 10e-08 in every document, it is possilbe to change it globally one day not now. (seven digits now in scripts.py and 9 floating point numbers in mains)
+
+First try run-tests.py for single element few times.
+
+Lastly change the combine-dim-func.py so you can run it automatically for the years functions.
